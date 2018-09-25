@@ -1,6 +1,7 @@
 package org.itstep;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +16,7 @@ public class Main {
             Map<String,Command> commands = new HashMap<>();
             AbstractCommandAplication app = numAppBuilder
                     .generateFrom("generate", new GenerateNumbersCommandFactory(1000, 1000))
-                    .sortFrom("sort", new SortNumbersCommandFactory())
+                    .sortFrom("sort", new SortNumbersCommandFactory(new PrintWriter(System.out)))
                     .saveFrom("save", new SaveNumbersCommandFactory(new File("./numbers.txt")))
                     .buildUpon(sc, commands, () -> System.out.println("Неизвестная команда повторите ввод"));
 
