@@ -15,7 +15,7 @@ public class SortNumbersCommand implements Command {
         if (0 == lst.size())
             return;
         for (int i =0; i != lst.size(); ++i)
-            for (int j=0; j != lst.size(); ++j)
+            for (int j=0; j != lst.size()-1; ++j)
                 if (lst.get(j) > lst.get(j+1))
                     Collections.swap(lst,j,j+1);
     }
