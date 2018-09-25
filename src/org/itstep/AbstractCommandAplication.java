@@ -1,13 +1,12 @@
 package org.itstep;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 abstract public class AbstractCommandAplication {
     private Scanner source;
     private Map<String,Command> commands;
-    private Command onUknownCommand;
+    private Command onUnknownCommand;
     private boolean proceed;
 
     protected Command putCommand(String name,Command cmd) {
@@ -18,7 +17,7 @@ abstract public class AbstractCommandAplication {
     public AbstractCommandAplication(Scanner source, Map<String, Command> commands, Command onUnknownCommand) {
         this.source          = source;
         this.commands        = commands;
-        this.onUknownCommand = onUnknownCommand;
+        this.onUnknownCommand = onUnknownCommand;
     }
 
     public AbstractCommandAplication(Scanner source, Map<String, Command> commands) {
@@ -28,7 +27,7 @@ abstract public class AbstractCommandAplication {
     public void loop() throws Exception {
         proceed = true;
         do {
-            commands.getOrDefault(source.next(),onUknownCommand).exec();
+            commands.getOrDefault(source.next(),onUnknownCommand).exec();
         } while (proceed);
     }
 
