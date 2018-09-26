@@ -18,11 +18,14 @@ public class ListNumbersCommand implements Command {
     public void exec() throws Exception {
         int counter = 0;
         for (Integer i : numbers) {
+            sendTo.write(i + " ");
             if (++counter == inOneLine) {
                 sendTo.println();
+                sendTo.flush();
                 counter = 0;
             }
-            sendTo.write(i + " ");
         }
+        sendTo.println();
+        sendTo.flush();
     }
 }
