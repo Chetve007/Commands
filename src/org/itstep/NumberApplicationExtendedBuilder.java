@@ -10,6 +10,8 @@ public class NumberApplicationExtendedBuilder extends NumberApplicationBuilder {
     private NumberCommandFactory list;
 
     private void build(Map<String,Command> commands) {
+        if (null == this.listName || null == this.list)
+            throw new IllegalStateException("List command not set");
         commands.put(this.listName,this.list.construct(numbers));
     }
 
