@@ -14,7 +14,7 @@ public class Main {
         try(Scanner sc = new Scanner(System.in)) {
             PrintWriter sysout = new PrintWriter(System.out);
             Map<String,Command> commands = new HashMap<>();
-            NumberApplicationExtendedBuilder numAppBuilder = new NumberApplicationExtendedBuilder(new ArrayList<>());
+            NumberApplicationBuilder numAppBuilder = new NumberApplicationBuilder(new ArrayList<>());
 
             AbstractCommandAplication app = numAppBuilder
                     .generateFrom("generate", new GenerateNumbersCommandFactory(1000, 1000))
