@@ -13,9 +13,10 @@ public class Main {
     public static void main(String[] args) throws Exception {
 	// write your code here
         try(Scanner sc = new Scanner(System.in)) {
-            NumberApplicationBuilder numAppBuilder = new NumberApplicationBuilder(new ArrayList<Integer>());
+            ReverseNumberApplicationBuilder numAppBuilder = new ReverseNumberApplicationBuilder(new ArrayList<Integer>());
             Map<String,Command> commands = new HashMap<>();
             AbstractCommandAplication app = numAppBuilder
+                    .reverseFrom("reverse",new ReverseNumbersCommandFactory())
                     .generateFrom("generate", new GenerateNumbersCommandFactory(1000, 1000))
                     .sortFrom("sort", new SortNumbersCommandFactory(new PrintWriter(System.out)))
                     .saveFrom("save", new SaveNumbersCommandFactory(new File("./numbers.txt")))
