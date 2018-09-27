@@ -18,11 +18,9 @@ public class Main {
             NumberApplicationExtendedBuilder numAppBuilder = new NumberApplicationExtendedBuilder(new ArrayList<>());
 
             AbstractCommandAplication app = numAppBuilder
-                    .listFrom("list", new ListNumbersCommandFactory(sysout,100))
                     .generateFrom("generate", new GenerateNumbersCommandFactory(1000, 1000))
                     .sortFrom("sort", new SortNumbersCommandFactory(sysout))
                     .saveFrom("save", new SaveNumbersCommandFactory(new File("./numbers.txt")))
-
                     .buildUpon(sc, commands, () -> System.out.println("Неизвестная команда повторите ввод"));
 
             commands.put("exit",()->app.stop());
