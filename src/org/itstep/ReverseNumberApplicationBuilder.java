@@ -15,9 +15,9 @@ public class ReverseNumberApplicationBuilder extends NumberApplicationBuilder {
         commands.put(revName,reverse.construct(lst));
     }
 
-    public ReverseNumberApplicationBuilder(List<Integer> lst, List<Integer> lst1) {
+    public ReverseNumberApplicationBuilder(List<Integer> lst) {
         super(lst);
-        this.lst = lst1;
+        this.lst = lst;
     }
 
     public ReverseNumberApplicationBuilder reverseFrom(String revName, NumberCommandFactory reverse) {
