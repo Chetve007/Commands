@@ -10,7 +10,7 @@ public class NumberApplicationBuilder {
     private List<Integer> lst;
 
     private void build(Map<String,Command> commands) {
-        if (null == generate || null == sort || null == save)
+        if (null == generate || null == genName || null == sort || null == srtName || null == save || null == svName)
             throw new IllegalStateException("Not all commands set");
         commands.put(genName,generate.construct(lst));
         commands.put(srtName,sort.construct(lst));
@@ -19,14 +19,10 @@ public class NumberApplicationBuilder {
 
     public NumberApplicationBuilder(List<Integer> lst) {
         this.lst = lst;
-        this.generate  = null;
-        this.sort      = null;
-        this.save      = null;
-        this.onUnknown = null;
     }
 
-    public NumberApplicationBuilder generateFrom(String getName, NumberCommandFactory generate) {
-        this.genName  = getName;
+    public NumberApplicationBuilder generateFrom(String genName, NumberCommandFactory generate) {
+        this.genName  = genName;
         this.generate = generate;
         return this;
     }
