@@ -19,6 +19,7 @@ public class Main {
             logFile.write("New session: "+ new Date().toString()+System.lineSeparator());
             logFile.flush();
 
+
             AbstractCommandAplication app = numAppBuilder
                     .generateFrom(
                             "generate"
