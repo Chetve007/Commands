@@ -18,9 +18,10 @@ public class LogCommandDecorator implements Command {
 
     @Override
     public void exec() throws Exception {
-        writer.write(name+"\n");
-        writer.write("before: "+lst.toString()+"\n");
+        writer.write(name+System.lineSeparator());
+        writer.write("before: "+lst.toString()+System.lineSeparator());
         origin.exec();
-        writer.write("after: "+lst.toString()+"\n");
+        writer.write("after: "+lst.toString()+System.lineSeparator());
+        writer.flush();
     }
 }
