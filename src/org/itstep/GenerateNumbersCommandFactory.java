@@ -1,6 +1,7 @@
 package org.itstep;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class GenerateNumbersCommandFactory implements NumberCommandFactory {
     private final int howMany, bound;
@@ -9,6 +10,8 @@ public class GenerateNumbersCommandFactory implements NumberCommandFactory {
         this.howMany = howMany;
         this.bound = bound;
     }
+
+
 
     @Override
     public Command construct(List<Integer> lst) {
