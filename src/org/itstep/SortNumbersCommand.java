@@ -1,10 +1,12 @@
 package org.itstep;
 
+import java.io.IOException;
 import java.io.Writer;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class SortNumbersCommand implements Command {
+public class SortNumbersCommand implements Command, Runnable {
     private final List<Integer> lst;
     private final Writer answerTo;
 
@@ -22,10 +24,15 @@ public class SortNumbersCommand implements Command {
         }
 
         answerTo.write("Начинаю сортировку..."); answerTo.flush();
+
+    }
+
+    @Override
+    public void run() {
         for (int i =0; i != lst.size(); ++i)
             for (int j=0; j != lst.size()-1; ++j)
                 if (lst.get(j) > lst.get(j+1))
                     Collections.swap(lst,j,j+1);
-        answerTo.write("Сортировка окончена!"); answerTo.flush();
+        try { answerTo.write("Сортировка окончена!"); answerTo.flush(); } catch (IOException e) { e.printStackTrace(); }
     }
 }
